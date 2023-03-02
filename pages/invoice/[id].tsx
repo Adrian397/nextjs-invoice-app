@@ -1,5 +1,7 @@
+import { EditInvoiceForm } from "@/components/EditInvoiceForm/EditInvoiceForm";
 import { Details } from "@/components/InvoiceDetails/Details/Details";
 import { useRouter } from "next/router";
+import { useState } from "react";
 import { Invoice } from "../index.utils";
 import {
   GoBack,
@@ -20,6 +22,8 @@ export default function InvoiceDetails({ invoiceList }: Props) {
     back,
   } = useRouter();
 
+  const [isFormVisible, setIsFormVisible] = useState(false);
+
   const invoice = invoiceList.find((invoice) => id === invoice.id);
 
   return (
@@ -39,12 +43,19 @@ export default function InvoiceDetails({ invoiceList }: Props) {
           </ItemStatus>
         </LeftHeaderPart>
         <RightHeaderPart>
-          <button>Edit</button>
+          <button onClick={() => setIsFormVisible(true)}>Edit</button>
           <button>Delete</button>
           <button>Mark as Paid</button>
         </RightHeaderPart>
       </InvoiceDetailsHeader>
       <Details invoice={invoice} />
+      {invoice && (
+        <EditInvoiceForm
+          isFormVisible={isFormVisible}
+          invoice={invoice}
+          onFormVisibilityChange={setIsFormVisible}
+        />
+      )}
     </Wrapper>
   );
 }

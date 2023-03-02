@@ -6,22 +6,22 @@ export const BillFrom = () => {
     <Bill>
       <p>Bill From</p>
       <WideInput>
-        <label htmlFor="streetAddressFrom">Street Address</label>
-        <input id="streetAddressFrom" />
+        <label>Street Address</label>
+        <input type="text" />
       </WideInput>
 
       <NarrowInputs>
         <NarrowInput>
-          <label htmlFor="cityFrom">City</label>
-          <input id="cityFrom" />
+          <label>City</label>
+          <input type="text" />
         </NarrowInput>
         <NarrowInput>
-          <label htmlFor="postCodeFrom">Post Code</label>
-          <input id="postCodeFrom" />
+          <label>Post Code</label>
+          <input type="text" />
         </NarrowInput>
         <NarrowInput>
-          <label htmlFor="countryFrom">City</label>
-          <input id="countryFrom" />
+          <label>City</label>
+          <input type="text" />
         </NarrowInput>
       </NarrowInputs>
     </Bill>

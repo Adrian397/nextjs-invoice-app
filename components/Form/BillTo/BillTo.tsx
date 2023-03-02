@@ -6,30 +6,30 @@ export const BillTo = () => {
     <Bill>
       <p>Bill To</p>
       <WideInput>
-        <label htmlFor="clientNameTo">Client's Name</label>
-        <input id="clientNameTo" />
+        <label>Client's Name</label>
+        <input type="text" />
       </WideInput>
       <WideInput>
-        <label htmlFor="clientEmail">Client's Email</label>
-        <input id="clientEmail" placeholder="e.g. email@example.com" />
+        <label>Client's Email</label>
+        <input type="text" placeholder="e.g. email@example.com" />
       </WideInput>
       <WideInput>
-        <label htmlFor="streetAddressTo">Street Address</label>
-        <input id="streetAddressTo" />
+        <label>Street Address</label>
+        <input type="text" />
       </WideInput>
 
       <NarrowInputs>
         <NarrowInput>
-          <label htmlFor="cityTo">City</label>
-          <input id="cityTo" />
+          <label>City</label>
+          <input type="text" />
         </NarrowInput>
         <NarrowInput>
-          <label htmlFor="postCodeTo">Post Code</label>
-          <input id="postCodeTo" />
+          <label>Post Code</label>
+          <input type="text" />
         </NarrowInput>
         <NarrowInput>
-          <label htmlFor="countryTo">Country</label>
-          <input id="countryTo" />
+          <label>Country</label>
+          <input type="text" />
         </NarrowInput>
       </NarrowInputs>
     </Bill>

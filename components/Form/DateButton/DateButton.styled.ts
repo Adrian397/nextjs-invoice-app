@@ -21,6 +21,8 @@ export const InputWrapper = styled.div`
     justify-content: space-between;
     padding: 0 1.25rem;
     cursor: pointer;
+    font-weight: bold;
+    color: rgba(12, 14, 22, 1);
 
     &:focus-visible {
       outline-color: rgba(146, 119, 255, 1);

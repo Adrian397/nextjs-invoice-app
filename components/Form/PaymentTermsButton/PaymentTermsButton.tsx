@@ -18,7 +18,7 @@ export const PaymentTermsButton = (props: Props): ReactElement => {
 
   return (
     <InputWrapper>
-      <label htmlFor="paymentTerms">Payment Terms</label>
+      <label>Payment Terms</label>
 
       <Menu isVisible={isDropdownVisible}>
         <button

@@ -1,6 +1,6 @@
+import { Invoice } from "@/pages/index.utils";
 import { ReactElement } from "react";
 import styled from "styled-components";
-import { Invoice } from "../../Root/Root.utils";
 import { BillingPart } from "./BillingPart/BillingPart";
 import { SummaryPart } from "./SummaryPart/SummaryPart";
 
