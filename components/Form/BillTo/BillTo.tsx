@@ -1,35 +1,94 @@
+import { useFormikContext } from "formik";
+import { InitValuesType } from "../Form.utils";
 import { NarrowInput, NarrowInputs, WideInput } from "../Inputs/Inputs.styled";
 import { Bill } from "./BillTo.styled";
 
 export const BillTo = () => {
+  const formik = useFormikContext<InitValuesType>();
+
   return (
     <Bill>
       <p>Bill To</p>
-      <WideInput>
-        <label>Client's Name</label>
-        <input type="text" />
+      <WideInput isError={formik.errors.clientName}>
+        <div>
+          <label>Client's Name</label>
+          <span>{formik.errors.clientName}</span>
+        </div>
+        <input
+          type="text"
+          {...formik.getFieldProps("clientName")}
+          onBlur={() => {
+            formik.validateField("clientName");
+          }}
+        />
       </WideInput>
-      <WideInput>
-        <label>Client's Email</label>
-        <input type="text" placeholder="e.g. email@example.com" />
+      <WideInput isError={formik.errors.clientEmail}>
+        <div>
+          <label>Client's Email</label>
+          <span>{formik.errors.clientEmail}</span>
+        </div>
+        <input
+          type="text"
+          placeholder="e.g. email@example.com"
+          {...formik.getFieldProps("clientEmail")}
+          onBlur={() => {
+            formik.validateField("clientEmail");
+          }}
+        />
       </WideInput>
-      <WideInput>
-        <label>Street Address</label>
-        <input type="text" />
+      <WideInput isError={formik.errors.clntAddrStreet}>
+        <div>
+          <label>Street Address</label>
+          <span>{formik.errors.clntAddrStreet}</span>
+        </div>
+        <input
+          type="text"
+          {...formik.getFieldProps("clntAddrStreet")}
+          onBlur={() => {
+            formik.validateField("clntAddrStreet");
+          }}
+        />
       </WideInput>
 
       <NarrowInputs>
-        <NarrowInput>
-          <label>City</label>
-          <input type="text" />
+        <NarrowInput isError={formik.errors.clntAddrCity}>
+          <div>
+            <label>City</label>
+            <span>{formik.errors.clntAddrCity}</span>
+          </div>
+          <input
+            type="text"
+            {...formik.getFieldProps("clntAddrCity")}
+            onBlur={() => {
+              formik.validateField("clntAddrCity");
+            }}
+          />
         </NarrowInput>
-        <NarrowInput>
-          <label>Post Code</label>
-          <input type="text" />
+        <NarrowInput isError={formik.errors.clntAddrPostCode}>
+          <div>
+            <label>Post Code</label>
+            <span>{formik.errors.clntAddrPostCode}</span>
+          </div>
+          <input
+            type="text"
+            {...formik.getFieldProps("clntAddrPostCode")}
+            onBlur={() => {
+              formik.validateField("clntAddrPostCode");
+            }}
+          />
         </NarrowInput>
-        <NarrowInput>
-          <label>Country</label>
-          <input type="text" />
+        <NarrowInput isError={formik.errors.clntAddrCountry}>
+          <div>
+            <label>Country</label>
+            <span>{formik.errors.clntAddrCountry}</span>
+          </div>
+          <input
+            type="text"
+            {...formik.getFieldProps("clntAddrCountry")}
+            onBlur={() => {
+              formik.validateField("clntAddrCountry");
+            }}
+          />
         </NarrowInput>
       </NarrowInputs>
     </Bill>

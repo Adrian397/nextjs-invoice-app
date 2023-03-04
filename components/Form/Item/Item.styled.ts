@@ -37,6 +37,7 @@ export const InputsWrapper = styled.div`
     display: flex;
     align-items: center;
     margin-right: auto;
+    overflow-x: hidden;
   }
 
   div {
@@ -44,8 +45,14 @@ export const InputsWrapper = styled.div`
     align-items: center;
   }
 
-  img:hover {
-    cursor: pointer;
+  button {
+    width: 13px;
+    height: 20px;
+    background: transparent url(/icon-delete.svg) no-repeat center;
+    background-size: 13px;
+  }
+
+  button:hover {
     filter: invert(54%) sepia(51%) saturate(5954%) hue-rotate(333deg)
       brightness(104%) contrast(84%);
   }

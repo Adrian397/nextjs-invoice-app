@@ -47,21 +47,3 @@ export const Panel = styled.div<StyledProps>`
     padding-left: 9.875rem;
   }
 `;
-
-export const Footer = styled.footer`
-  width: 100%;
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2rem 4.1rem 2rem 9.875rem;
-  border-radius: 0px 20px 20px 0px;
-  background-color: white;
-  position: fixed;
-  bottom: 0;
-
-  div {
-    display: flex;
-    gap: 0.5rem;
-  }
-`;

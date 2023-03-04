@@ -4,4 +4,5 @@ export type StyledProps = {
   activeStatuses?: string[];
   bgColor?: string;
   txtColor?: string;
+  isError?: string;
 };

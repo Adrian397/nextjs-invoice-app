@@ -4,13 +4,14 @@ export const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 50%;
+  position: relative;
 
   label {
     color: rgba(126, 136, 195, 1);
     font-size: 0.875rem;
     margin-bottom: 0.625rem;
   }
-  button {
+  & > button {
     background: none;
     border: 1px solid rgba(223, 227, 250, 1);
     border-radius: 4px;
@@ -26,6 +27,17 @@ export const InputWrapper = styled.div`
 
     &:focus-visible {
       outline-color: rgba(146, 119, 255, 1);
+    }
+  }
+
+  & > div {
+    position: absolute;
+    top: 5rem;
+    width: 100%;
+    z-index: 2;
+
+    button:hover {
+      border: none !important;
     }
   }
 `;

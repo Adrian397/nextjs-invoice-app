@@ -1,3 +1,4 @@
+import { StyledProps } from "@/utils/styledProps";
 import styled from "styled-components";
 
 export const InvoiceForm = styled.form`
@@ -89,19 +90,34 @@ export const Labels = styled.div`
   }
 `;
 
-export const InputWrapper = styled.div`
+export const InputWrapper = styled.div<StyledProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: 1.5rem;
 
-  label {
-    color: rgba(126, 136, 195, 1);
-    font-size: 0.875rem;
+  div {
+    display: flex;
+    justify-content: space-between;
     margin-bottom: 0.625rem;
+
+    span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: rgba(236, 87, 87, 1);
+    }
+  }
+
+  label {
+    color: ${({ isError }) =>
+      isError ? "rgba(236, 87, 87, 1)" : "rgba(126, 136, 195, 1)"};
+    font-size: 0.875rem;
   }
   input {
-    border: 1px solid rgba(223, 227, 250, 1);
+    border: ${({ isError }) =>
+      isError
+        ? "1px solid rgba(236, 87, 87, 1)"
+        : "1px solid rgba(223, 227, 250, 1)"};
     border-radius: 4px;
     height: 3rem;
     font-size: 0.875rem;
@@ -121,12 +137,29 @@ export const InputWrapper = styled.div`
 
 export const ItemList = styled.div`
   width: 100%;
-  /* background-color: blue; */
 
   h2 {
     color: rgba(119, 127, 152, 1);
     font-weight: bold;
     font-size: 1.25rem;
     margin-bottom: 1rem;
+  }
+`;
+
+export const Footer = styled.footer`
+  width: 100%;
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 4.1rem 2rem 9.875rem;
+  border-radius: 0px 20px 20px 0px;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+
+  div {
+    display: flex;
+    gap: 0.5rem;
   }
 `;
