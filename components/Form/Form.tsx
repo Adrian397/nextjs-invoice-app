@@ -38,7 +38,7 @@ export const Form = () => {
     items: [],
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values: InitValuesType) => {
     console.log(values);
   };
 
