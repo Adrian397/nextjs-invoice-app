@@ -27,15 +27,6 @@ export type InitValuesType = {
 };
 
 export const validationSchema = Yup.object().shape({
-  // sendAddrStreet: Yup.string().required("can't be empty"),
-  // sendAddrCity: Yup.string().required("can't be empty"),
-  // sendAddrPostCode: Yup.string().required("can't be empty"),
-  // sendAddrCountry: Yup.string().required("can't be empty"),
-  // clntAddrStreet: Yup.string().required("can't be empty"),
-  // clntAddrCity: Yup.string().required("can't be empty"),
-  // clntAddrPostCode: Yup.string().required("can't be empty"),
-  // clntAddrCountry: Yup.string().required("can't be empty"),
-
   senderAddress: Yup.object().shape({
     street: Yup.string().required("can't be empty"),
     city: Yup.string().required("can't be empty"),

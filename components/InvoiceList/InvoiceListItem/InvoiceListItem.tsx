@@ -1,4 +1,4 @@
-import { Invoice } from "@/pages/index.utils";
+import { Invoice } from "@/components/pagesStylesUtils/index/index.utils";
 import { options } from "@/utils/dateFormat";
 import { useRouter } from "next/router";
 import { ReactElement } from "react";

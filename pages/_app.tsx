@@ -1,8 +1,8 @@
 import { Layout } from "@/components/Layout/Layout";
+import { Invoice } from "@/components/pagesStylesUtils/index/index.utils";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect, useState } from "react";
-import { Invoice } from "./index.utils";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [invoiceList, setInvoiceList] = useState<Invoice[]>([]);
