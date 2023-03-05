@@ -8,7 +8,6 @@ type Props = {
 };
 
 export const BillFrom = ({ formik }: Props) => {
-  console.log(formik.errors);
   return (
     <Bill>
       <p>Bill From</p>
