@@ -8,11 +8,7 @@ type Props = {
 };
 
 export const BillFrom = ({ formik }: Props) => {
-  // const formik = useFormikContext<InitValuesType>();
-  // console.log(formik.errors);
-
-  // console.log(formik.errors.senderAddress?.street);
-
+  console.log(formik.errors);
   return (
     <Bill>
       <p>Bill From</p>

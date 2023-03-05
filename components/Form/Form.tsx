@@ -1,5 +1,4 @@
-import { Formik } from "formik";
-import { useState } from "react";
+import { FieldArray, Formik } from "formik";
 import { BillFrom } from "./BillFrom/BillFrom";
 import { BillTo } from "./BillTo/BillTo";
 import { DateButton } from "./DateButton/DateButton";
@@ -14,17 +13,11 @@ import {
   Labels,
   Scroll,
 } from "./Form.styled";
-import { InitValuesType, ItemType, validationSchema } from "./Form.utils";
+import { InitValuesType, validationSchema } from "./Form.utils";
 import { Item } from "./Item/Item";
 import { PaymentTermsButton } from "./PaymentTermsButton/PaymentTermsButton";
 
 export const Form = () => {
-  const [items, setItems] = useState<ItemType[]>([]);
-
-  const handleAddItem = () => {
-    setItems([...items, { name: "", quantity: "", price: "", total: "" }]);
-  };
-
   const initialValues: InitValuesType = {
     // Cannot use objects because of Formik validation bug with validateField function that refuses to validate object properties
     // senderAddress: {
@@ -52,6 +45,7 @@ export const Form = () => {
     clientName: "",
     clientEmail: "",
     description: "",
+    items: [],
   };
 
   const handleSubmit = (values) => {
@@ -71,7 +65,7 @@ export const Form = () => {
           <div>
             <Scroll>
               <BillFrom formik={formik} />
-              <BillTo />
+              <BillTo formik={formik} />
               <Box>
                 <div>
                   <DateButton />
@@ -101,20 +95,34 @@ export const Form = () => {
                     <span>Price</span>
                     <span>Total</span>
                   </Labels>
-
-                  {items.map((item, index) => (
-                    <Item
-                      key={index}
-                      item={item}
-                      onValueChange={setItems}
-                      items={items}
-                      index={index}
-                    />
-                  ))}
-
-                  <button type="button" onClick={handleAddItem}>
-                    + Add New Item
-                  </button>
+                  <FieldArray
+                    name="items"
+                    render={(helpers) => (
+                      <>
+                        {formik.values.items.map((item, index) => (
+                          <Item
+                            key={index}
+                            item={item}
+                            index={index}
+                            helpers={helpers}
+                          />
+                        ))}
+                        <button
+                          type="button"
+                          onClick={() =>
+                            helpers.push({
+                              name: "",
+                              quantity: "",
+                              price: "",
+                              total: "",
+                            })
+                          }
+                        >
+                          + Add New Item
+                        </button>
+                      </>
+                    )}
+                  />
                 </AddItem>
               </ItemList>
             </Scroll>

@@ -1,11 +1,13 @@
-import { useFormikContext } from "formik";
+import { FormikProps } from "formik";
 import { InitValuesType } from "../Form.utils";
 import { NarrowInput, NarrowInputs, WideInput } from "../Inputs/Inputs.styled";
 import { Bill } from "./BillTo.styled";
 
-export const BillTo = () => {
-  const formik = useFormikContext<InitValuesType>();
+type Props = {
+  formik: FormikProps<InitValuesType>;
+};
 
+export const BillTo = ({ formik }: Props) => {
   return (
     <Bill>
       <p>Bill To</p>

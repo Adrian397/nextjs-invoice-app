@@ -19,6 +19,7 @@ export type InitValuesType = {
   clientName: string;
   clientEmail: string;
   description: string;
+  items: ItemType[];
 };
 
 export const validationSchema = Yup.object().shape({
@@ -32,5 +33,17 @@ export const validationSchema = Yup.object().shape({
   clntAddrCountry: Yup.string().required("can't be empty"),
   description: Yup.string().required("can't be empty"),
   clientName: Yup.string().required("can't be empty"),
-  clientEmail: Yup.string().required("can't be empty"),
+  clientEmail: Yup.string()
+    .email("invalid email format")
+    .required("can't be empty"),
+  items: Yup.array()
+    .of(
+      Yup.object().shape({
+        name: Yup.string().required("can't be empty"),
+        quantity: Yup.string().required(),
+        price: Yup.string().required(),
+        total: Yup.number(),
+      })
+    )
+    .min(1, "- An item must be added."),
 });
