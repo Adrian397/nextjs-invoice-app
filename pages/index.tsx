@@ -1,8 +1,12 @@
 import { InvoiceListHeader } from "@/components/InvoiceList/InvoiceListHeader/InvoiceListHeader";
 import InvoiceListItem from "@/components/InvoiceList/InvoiceListItem/InvoiceListItem";
+import {
+  List,
+  NoListItems,
+  Wrapper,
+} from "@/components/pagesStylesUtils/index/index.styled";
+import { Invoice } from "@/components/pagesStylesUtils/index/index.utils";
 import { useMemo, useState } from "react";
-import { List, NoListItems, Wrapper } from "./index.styled";
-import { Invoice } from "./index.utils";
 
 type Props = {
   invoiceList: Invoice[];
