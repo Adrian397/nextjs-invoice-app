@@ -1,7 +1,8 @@
 import { FieldArrayRenderProps, useFormikContext } from "formik";
 import { useEffect } from "react";
 import { InitValuesType, ItemType } from "../Form.utils";
-import { Field, InputsWrapper } from "./Item.styled";
+import { InputsWrapper } from "./Item.styled";
+import { ItemInput } from "./ItemInput/ItemInput";
 
 type Props = {
   index: number;
@@ -48,24 +49,27 @@ export const Item = ({ item, index, helpers }: Props) => {
 
   return (
     <InputsWrapper>
-      <Field
-        {...getFieldProps(`items[${index}].name`)}
+      <ItemInput
+        name={`items[${index}].name`}
         onChange={(e) => handleInputValue(e, "name", `items[${index}].name`)}
+        isDisabled={false}
       />
-      <Field
+      <ItemInput
         {...getFieldProps(`items[${index}].quantity`)}
+        name={`items[${index}].quantity`}
         onChange={(e) =>
           handleInputValue(e, "quantity", `items[${index}].quantity`)
         }
         placeholder={!item.quantity ? "0" : ""}
+        isDisabled={false}
       />
-      <Field
-        {...getFieldProps(`items[${index}].price`)}
+      <ItemInput
+        name={`items[${index}].price`}
         onChange={(e) => handleInputValue(e, "price", `items[${index}].price`)}
         placeholder={!item.price ? "0.00" : ""}
+        isDisabled={false}
       />
-
-      <Field {...getFieldProps(`items[${index}].total`)} disabled />
+      <ItemInput name={`items[${index}].total`} isDisabled={true} />
       <div>
         <button type="button" onClick={() => helpers.remove(index)} />
       </div>

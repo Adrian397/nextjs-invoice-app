@@ -13,6 +13,7 @@ import {
   Scroll,
 } from "./Form.styled";
 import { InitValuesType, validationSchema } from "./Form.utils";
+import { Input } from "./Input/Input";
 import { Item } from "./Item/Item";
 import { PaymentTermsButton } from "./PaymentTermsButton/PaymentTermsButton";
 
@@ -47,7 +48,6 @@ export const Form = () => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
       validateOnChange={false}
-      // validateOnBlur={false}
     >
       {(formik) => (
         <InvoiceForm onSubmit={formik.handleSubmit}>
@@ -60,20 +60,7 @@ export const Form = () => {
                   <DateButton />
                   <PaymentTermsButton />
                 </div>
-                {/* <InputWrapper isError={formik.errors.description}>
-                  <div>
-                    <label>Project Description</label>
-                    <span>{formik.errors.description}</span>
-                  </div>
-                  <input
-                    type="text"
-                    placeholder="e.g. Graphic Design Service"
-                    {...formik.getFieldProps("description")}
-                    onBlur={() => {
-                      formik.validateField("description");
-                    }}
-                  />
-                </InputWrapper> */}
+                <Input label="Project Description" name="description" />
               </Box>
               <ItemList>
                 <h2>Item List</h2>

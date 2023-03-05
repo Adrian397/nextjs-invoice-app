@@ -1,9 +1,11 @@
 import { StyledProps } from "@/utils/styledProps";
 import styled from "styled-components";
 
-export const NarrowWrapper = styled.div<StyledProps>`
+export const Wrapper = styled.div<StyledProps>`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin-bottom: 1.5rem;
 
   label {
     color: ${({ isValid }) =>
@@ -12,7 +14,6 @@ export const NarrowWrapper = styled.div<StyledProps>`
     margin-bottom: 0.625rem;
   }
   input {
-    width: 100%;
     padding-left: 1.25rem;
     border: ${({ isValid }) =>
       isValid
@@ -22,7 +23,13 @@ export const NarrowWrapper = styled.div<StyledProps>`
     height: 3rem;
     font-size: 0.875rem;
     font-weight: bold;
+    width: 100%;
     color: rgba(12, 14, 22, 1);
+
+    &::placeholder {
+      color: rgba(12, 14, 22, 1);
+      opacity: 0.4;
+    }
 
     &:focus-visible {
       outline-color: rgba(146, 119, 255, 1);
