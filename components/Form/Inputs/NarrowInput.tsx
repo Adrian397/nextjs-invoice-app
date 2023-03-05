@@ -1,17 +1,21 @@
 import { useField } from "formik";
+import { NarrowWrapper } from "./NarrowInput.styled";
 
-type Props = {};
+type Props = {
+  label: string;
+  name: string;
+};
 
-export const NarrowInput = ({}: Props) => {
+export const NarrowInput = ({ label, name }: Props) => {
   const [field, meta] = useField(name);
 
+  //   console.log(meta);
+
   return (
-    <Wrapper isError={!(meta.touched && meta.error)}>
-      <div>
-        <label>City</label>
-        <span>{error}</span>
-      </div>
+    <NarrowWrapper isValid={!(meta.touched && meta.error)}>
+      <label>{label}</label>
+
       <input type="text" {...field} />
-    </Wrapper>
+    </NarrowWrapper>
   );
 };

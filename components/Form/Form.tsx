@@ -7,7 +7,6 @@ import {
   AddItem,
   Box,
   Footer,
-  InputWrapper,
   InvoiceForm,
   ItemList,
   Labels,
@@ -19,28 +18,18 @@ import { PaymentTermsButton } from "./PaymentTermsButton/PaymentTermsButton";
 
 export const Form = () => {
   const initialValues: InitValuesType = {
-    // Cannot use objects because of Formik validation bug with validateField function that refuses to validate object properties
-    // senderAddress: {
-    //   street: "",
-    //   city: "",
-    //   postCode: "",
-    //   country: "",
-    // },
-    // clientAddress: {
-    //   street: "",
-    //   city: "",
-    //   postCode: "",
-    //   country: "",
-    // },
-    sendAddrStreet: "",
-    sendAddrCity: "",
-    sendAddrPostCode: "",
-    sendAddrCountry: "",
-
-    clntAddrStreet: "",
-    clntAddrCity: "",
-    clntAddrPostCode: "",
-    clntAddrCountry: "",
+    senderAddress: {
+      street: "",
+      city: "",
+      postCode: "",
+      country: "",
+    },
+    clientAddress: {
+      street: "",
+      city: "",
+      postCode: "",
+      country: "",
+    },
 
     clientName: "",
     clientEmail: "",
@@ -58,7 +47,7 @@ export const Form = () => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
       validateOnChange={false}
-      validateOnBlur={false}
+      // validateOnBlur={false}
     >
       {(formik) => (
         <InvoiceForm onSubmit={formik.handleSubmit}>
@@ -71,7 +60,7 @@ export const Form = () => {
                   <DateButton />
                   <PaymentTermsButton />
                 </div>
-                <InputWrapper isError={formik.errors.description}>
+                {/* <InputWrapper isError={formik.errors.description}>
                   <div>
                     <label>Project Description</label>
                     <span>{formik.errors.description}</span>
@@ -84,7 +73,7 @@ export const Form = () => {
                       formik.validateField("description");
                     }}
                   />
-                </InputWrapper>
+                </InputWrapper> */}
               </Box>
               <ItemList>
                 <h2>Item List</h2>

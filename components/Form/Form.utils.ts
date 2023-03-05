@@ -8,14 +8,18 @@ export type ItemType = {
 };
 
 export type InitValuesType = {
-  sendAddrStreet: string;
-  sendAddrCity: string;
-  sendAddrPostCode: string;
-  sendAddrCountry: string;
-  clntAddrStreet: string;
-  clntAddrCity: string;
-  clntAddrPostCode: string;
-  clntAddrCountry: string;
+  senderAddress: {
+    street: string;
+    city: string;
+    postCode: string;
+    country: string;
+  };
+  clientAddress: {
+    street: string;
+    city: string;
+    postCode: string;
+    country: string;
+  };
   clientName: string;
   clientEmail: string;
   description: string;
@@ -23,14 +27,27 @@ export type InitValuesType = {
 };
 
 export const validationSchema = Yup.object().shape({
-  sendAddrStreet: Yup.string().required("can't be empty"),
-  sendAddrCity: Yup.string().required("can't be empty"),
-  sendAddrPostCode: Yup.string().required("can't be empty"),
-  sendAddrCountry: Yup.string().required("can't be empty"),
-  clntAddrStreet: Yup.string().required("can't be empty"),
-  clntAddrCity: Yup.string().required("can't be empty"),
-  clntAddrPostCode: Yup.string().required("can't be empty"),
-  clntAddrCountry: Yup.string().required("can't be empty"),
+  // sendAddrStreet: Yup.string().required("can't be empty"),
+  // sendAddrCity: Yup.string().required("can't be empty"),
+  // sendAddrPostCode: Yup.string().required("can't be empty"),
+  // sendAddrCountry: Yup.string().required("can't be empty"),
+  // clntAddrStreet: Yup.string().required("can't be empty"),
+  // clntAddrCity: Yup.string().required("can't be empty"),
+  // clntAddrPostCode: Yup.string().required("can't be empty"),
+  // clntAddrCountry: Yup.string().required("can't be empty"),
+
+  senderAddress: Yup.object().shape({
+    street: Yup.string().required("can't be empty"),
+    city: Yup.string().required("can't be empty"),
+    postCode: Yup.string().required("can't be empty"),
+    country: Yup.string().required("can't be empty"),
+  }),
+  clientAddress: Yup.object().shape({
+    street: Yup.string().required("can't be empty"),
+    city: Yup.string().required("can't be empty"),
+    postCode: Yup.string().required("can't be empty"),
+    country: Yup.string().required("can't be empty"),
+  }),
   description: Yup.string().required("can't be empty"),
   clientName: Yup.string().required("can't be empty"),
   clientEmail: Yup.string()
