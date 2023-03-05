@@ -1,4 +1,4 @@
-import { Invoice } from "@/app/page.utils";
+import { Invoice } from "@/pages/index.utils";
 
 export const countFilteredInvoices = (
   activeStatuses: string[],
