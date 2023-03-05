@@ -1,8 +1,9 @@
 import { EditInvoiceForm } from "@/components/EditInvoiceForm/EditInvoiceForm";
 import { Details } from "@/components/InvoiceDetails/Details/Details";
+import { Invoice } from "@/components/pagesStylesUtils/index/index.utils";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { Invoice } from "../index.utils";
+
 import {
   GoBack,
   InvoiceDetailsHeader,
@@ -10,7 +11,7 @@ import {
   LeftHeaderPart,
   RightHeaderPart,
   Wrapper,
-} from "./[id].styled";
+} from "../../components/pagesStylesUtils/invoice/invoice.styled";
 
 type Props = {
   invoiceList: Invoice[];
