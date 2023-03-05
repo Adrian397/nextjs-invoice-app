@@ -1,4 +1,4 @@
-# NOT FINISHED - ~40% DONE
+# NOT FINISHED - ~40% DONE - You can see the progress by clicking on a deployed version in about section
 # IN PROGRESS
 # IN PROGRESS
 # IN PROGRESS
