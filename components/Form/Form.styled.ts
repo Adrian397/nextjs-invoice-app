@@ -163,3 +163,14 @@ export const Footer = styled.footer`
     gap: 0.5rem;
   }
 `;
+
+export const Error = styled.p`
+  color: rgba(236, 87, 87, 1);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+
+  &:nth-of-type(1) {
+    margin-top: 2rem;
+  }
+`;

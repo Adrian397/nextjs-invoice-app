@@ -1,5 +1,5 @@
 import { CreateInvoiceForm } from "@/components/CreateInvoiceForm/CreateInvoiceForm";
-import { Invoice } from "@/components/pagesStylesUtils/index/index.utils";
+import { Invoice } from "@/components/pagesStylesAndUtils/index/index.utils";
 import { useState } from "react";
 import {
   Arrow,

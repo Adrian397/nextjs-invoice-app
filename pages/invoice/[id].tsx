@@ -1,8 +1,10 @@
 import { EditInvoiceForm } from "@/components/EditInvoiceForm/EditInvoiceForm";
 import { Details } from "@/components/InvoiceDetails/Details/Details";
-import { Invoice } from "@/components/pagesStylesUtils/index/index.utils";
+import { Layout } from "@/components/Layout/Layout";
+import { Invoice } from "@/components/pagesStylesAndUtils/index/index.utils";
+import Head from "next/head";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { ReactElement, useState } from "react";
 
 import {
   GoBack,
@@ -11,13 +13,14 @@ import {
   LeftHeaderPart,
   RightHeaderPart,
   Wrapper,
-} from "../../components/pagesStylesUtils/invoice/invoice.styled";
+} from "../../components/pagesStylesAndUtils/invoice/invoice.styled";
+import type { NextPageWithLayout } from "../_app";
 
 type Props = {
   invoiceList: Invoice[];
 };
 
-export default function InvoiceDetails({ invoiceList }: Props) {
+const InvoiceDetails: NextPageWithLayout<Props> = ({ invoiceList }: Props) => {
   const {
     query: { id },
     back,
@@ -29,6 +32,9 @@ export default function InvoiceDetails({ invoiceList }: Props) {
 
   return (
     <Wrapper>
+      <Head>
+        <title>Invoice</title>
+      </Head>
       <GoBack>
         <button onClick={() => back()}>
           <img src="/icon-arrow-left.svg" alt="go back" />
@@ -59,4 +65,10 @@ export default function InvoiceDetails({ invoiceList }: Props) {
       )}
     </Wrapper>
   );
-}
+};
+
+InvoiceDetails.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default InvoiceDetails;

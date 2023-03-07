@@ -1,3 +1,4 @@
+import { reduceErrors, validationSchema } from "@/utils/validationSchema";
 import { FieldArray, Formik } from "formik";
 import { BillFrom } from "./BillFrom/BillFrom";
 import { BillTo } from "./BillTo/BillTo";
@@ -6,13 +7,14 @@ import { FooterButton } from "./FooterButton/FooterButton";
 import {
   AddItem,
   Box,
+  Error,
   Footer,
   InvoiceForm,
   ItemList,
   Labels,
   Scroll,
 } from "./Form.styled";
-import { InitValuesType, validationSchema } from "./Form.utils";
+import { InitValuesType } from "./Form.utils";
 import { Input } from "./Input/Input";
 import { Item } from "./Item/Item";
 import { PaymentTermsButton } from "./PaymentTermsButton/PaymentTermsButton";
@@ -101,6 +103,9 @@ export const Form = () => {
                   />
                 </AddItem>
               </ItemList>
+              {reduceErrors(formik.errors).map((item, index) => (
+                <Error key={index}>{item}</Error>
+              ))}
             </Scroll>
           </div>
           <Footer>

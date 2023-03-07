@@ -1,18 +1,21 @@
 import { InvoiceListHeader } from "@/components/InvoiceList/InvoiceListHeader/InvoiceListHeader";
 import InvoiceListItem from "@/components/InvoiceList/InvoiceListItem/InvoiceListItem";
+import { Layout } from "@/components/Layout/Layout";
 import {
   List,
   NoListItems,
   Wrapper,
-} from "@/components/pagesStylesUtils/index/index.styled";
-import { Invoice } from "@/components/pagesStylesUtils/index/index.utils";
-import { useMemo, useState } from "react";
+} from "@/components/pagesStylesAndUtils/index/index.styled";
+import { Invoice } from "@/components/pagesStylesAndUtils/index/index.utils";
+import Head from "next/head";
+import { ReactElement, useMemo, useState } from "react";
+import type { NextPageWithLayout } from "./_app";
 
 type Props = {
   invoiceList: Invoice[];
 };
 
-export default function Home({ invoiceList }: Props) {
+const Home: NextPageWithLayout<Props> = ({ invoiceList }: Props) => {
   const [activeStatuses, setActiveStatuses] = useState<string[]>([]);
 
   const filteredInvoices = useMemo(() => {
@@ -26,6 +29,9 @@ export default function Home({ invoiceList }: Props) {
 
   return (
     <Wrapper>
+      <Head>
+        <title>Home</title>
+      </Head>
       <InvoiceListHeader
         activeStatuses={activeStatuses}
         setActiveStauses={setActiveStatuses}
@@ -56,4 +62,10 @@ export default function Home({ invoiceList }: Props) {
       )}
     </Wrapper>
   );
-}
+};
+
+Home.getLayout = function getLayout(page: ReactElement) {
+  return <Layout>{page}</Layout>;
+};
+
+export default Home;

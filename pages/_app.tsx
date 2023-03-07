@@ -1,10 +1,20 @@
-import { Layout } from "@/components/Layout/Layout";
-import { Invoice } from "@/components/pagesStylesUtils/index/index.utils";
+import { Invoice } from "@/components/pagesStylesAndUtils/index/index.utils";
 import "@/styles/globals.css";
+import type { NextPage } from "next";
 import type { AppProps } from "next/app";
-import { useEffect, useState } from "react";
+import { ReactElement, ReactNode, useEffect, useState } from "react";
 
-export default function App({ Component, pageProps }: AppProps) {
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component.getLayout ?? ((page) => page);
+
   const [invoiceList, setInvoiceList] = useState<Invoice[]>([]);
 
   useEffect(() => {
@@ -24,9 +34,5 @@ export default function App({ Component, pageProps }: AppProps) {
     fetchData();
   }, []);
 
-  return (
-    <Layout>
-      <Component {...pageProps} invoiceList={invoiceList} />
-    </Layout>
-  );
+  return getLayout(<Component {...pageProps} invoiceList={invoiceList} />);
 }
