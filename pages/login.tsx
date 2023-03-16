@@ -36,13 +36,13 @@ const Login = () => {
 
   const handleGoogleSignIn = async () => {
     signIn("google", {
-      callbackUrl: "https://nextjs-invoice-app-dusky.vercel.app/",
+      callbackUrl: "https://nextjs-invoice-app-dusky.vercel.app",
     });
   };
 
   const handleGithubSignIn = async () => {
     signIn("github", {
-      callbackUrl: "https://nextjs-invoice-app-dusky.vercel.app/",
+      callbackUrl: "https://nextjs-invoice-app-dusky.vercel.app",
     });
   };
 
