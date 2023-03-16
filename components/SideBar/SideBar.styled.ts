@@ -44,16 +44,19 @@ export const BottomBox = styled.div`
   height: 12rem;
 `;
 
-export const ThemeBox = styled.div`
+export const SignOut = styled.div`
   height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const ThemeSwitch = styled.img`
-  height: 20px;
-  width: 20px;
+export const SignOutBtn = styled.button`
+  background: transparent url("/logout.png") no-repeat center;
+  background-size: 24px;
+  width: 24px;
+  height: 24px;
+  border: none;
   cursor: pointer;
 `;
 

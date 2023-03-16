@@ -15,6 +15,7 @@
     "decimal.js": "^10.4.3",
     "formik": "^2.2.6",
     "next": "13.2.1",
+    "next-auth": "^4.20.1",
     "react": "18.2.0",
     "react-calendar": "^4.0.0",
     "react-dom": "18.2.0",

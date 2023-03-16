@@ -1,4 +1,4 @@
-import { Invoice } from "@/components/pagesStylesAndUtils/index/index.utils";
+import { Invoice } from "@/components/Index/index.utils";
 import { Fragment, ReactElement } from "react";
 import { Amount, Items, Summary, SumUp } from "./SummaryPart.styled";
 

@@ -1,3 +1,4 @@
+import { signOut } from "next-auth/react";
 import {
   BottomBox,
   Box,
@@ -5,11 +6,15 @@ import {
   LogoBox,
   ProfileBox,
   ProfilePicture,
-  ThemeBox,
-  ThemeSwitch,
+  SignOut,
+  SignOutBtn,
 } from "./SideBar.styled";
 
 export const SideBar = () => {
+  const handleSignOut = () => {
+    signOut();
+  };
+
   return (
     <Box>
       <LogoBox>
@@ -17,9 +22,9 @@ export const SideBar = () => {
         <div />
       </LogoBox>
       <BottomBox>
-        <ThemeBox>
-          <ThemeSwitch src="/icon-moon.svg" />
-        </ThemeBox>
+        <SignOut onClick={handleSignOut}>
+          <SignOutBtn />
+        </SignOut>
         <ProfileBox>
           <ProfilePicture src="/image-avatar.jpg" />
         </ProfileBox>

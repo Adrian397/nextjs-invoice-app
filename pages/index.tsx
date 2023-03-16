@@ -1,12 +1,10 @@
+import { List, NoListItems, Wrapper } from "@/components/Index/index.styled";
+import { Invoice } from "@/components/Index/index.utils";
 import { InvoiceListHeader } from "@/components/InvoiceList/InvoiceListHeader/InvoiceListHeader";
 import InvoiceListItem from "@/components/InvoiceList/InvoiceListItem/InvoiceListItem";
 import { Layout } from "@/components/Layout/Layout";
-import {
-  List,
-  NoListItems,
-  Wrapper,
-} from "@/components/pagesStylesAndUtils/index/index.styled";
-import { Invoice } from "@/components/pagesStylesAndUtils/index/index.utils";
+import { GetServerSideProps } from "next";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { ReactElement, useMemo, useState } from "react";
 import type { NextPageWithLayout } from "./_app";
@@ -69,3 +67,20 @@ Home.getLayout = function getLayout(page: ReactElement) {
 };
 
 export default Home;
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const session = await getSession({ req });
+
+  if (!session) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: { session },
+  };
+};

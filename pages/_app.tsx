@@ -1,6 +1,7 @@
-import { Invoice } from "@/components/pagesStylesAndUtils/index/index.utils";
+import { Invoice } from "@/components/Index/index.utils";
 import "@/styles/globals.css";
 import type { NextPage } from "next";
+import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
 import { ReactElement, ReactNode, useEffect, useState } from "react";
 
@@ -12,7 +13,10 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page) => page);
 
   const [invoiceList, setInvoiceList] = useState<Invoice[]>([]);
@@ -34,5 +38,9 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
     fetchData();
   }, []);
 
-  return getLayout(<Component {...pageProps} invoiceList={invoiceList} />);
+  return getLayout(
+    <SessionProvider session={session}>
+      <Component {...pageProps} invoiceList={invoiceList} />
+    </SessionProvider>
+  );
 }

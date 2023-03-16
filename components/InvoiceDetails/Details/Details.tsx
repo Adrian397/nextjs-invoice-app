@@ -1,4 +1,4 @@
-import { Invoice } from "@/components/pagesStylesAndUtils/index/index.utils";
+import { Invoice } from "@/components/Index/index.utils";
 import { ReactElement } from "react";
 import styled from "styled-components";
 import { BillingPart } from "./BillingPart/BillingPart";

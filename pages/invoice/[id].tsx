@@ -1,11 +1,5 @@
 import { EditInvoiceForm } from "@/components/EditInvoiceForm/EditInvoiceForm";
-import { Details } from "@/components/InvoiceDetails/Details/Details";
-import { Layout } from "@/components/Layout/Layout";
-import { Invoice } from "@/components/pagesStylesAndUtils/index/index.utils";
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { ReactElement, useState } from "react";
-
+import { Invoice } from "@/components/Index/index.utils";
 import {
   GoBack,
   InvoiceDetailsHeader,
@@ -13,7 +7,13 @@ import {
   LeftHeaderPart,
   RightHeaderPart,
   Wrapper,
-} from "../../components/pagesStylesAndUtils/invoice/invoice.styled";
+} from "@/components/Invoice/invoice.styled";
+import { Details } from "@/components/InvoiceDetails/Details/Details";
+import { Layout } from "@/components/Layout/Layout";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { ReactElement, useState } from "react";
+
 import type { NextPageWithLayout } from "../_app";
 
 type Props = {

@@ -1,5 +1,5 @@
 import { Form } from "../Form/Form";
-import { Invoice } from "../pagesStylesAndUtils/index/index.utils";
+import { Invoice } from "../Index/index.utils";
 import { Panel, Wrapper } from "./EditInvoiceForm.styled";
 
 type Props = {
