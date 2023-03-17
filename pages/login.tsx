@@ -35,11 +35,15 @@ const Login = () => {
   });
 
   const handleGoogleSignIn = async () => {
-    signIn("google");
+    signIn("google", {
+      callbackUrl: "https://nextjs-invoice-app-dusky.vercel.app",
+    });
   };
 
   const handleGithubSignIn = async () => {
-    signIn("github");
+    signIn("github", {
+      callbackUrl: "https://nextjs-invoice-app-dusky.vercel.app",
+    });
   };
 
   return (
