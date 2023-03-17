@@ -1,10 +1,9 @@
-# NOT FINISHED - ~40% DONE - You can see the progress by clicking on a deployed version in "About" section
-# IN PROGRESS
-# IN PROGRESS
-# IN PROGRESS
-# IN PROGRESS
-# IN PROGRESS
-# IN PROGRESS
-# IN PROGRESS
+# IN PROGRESS - ~50% DONE
+
+Working on:
+- :heavy_check_mark: third party login auth
+- :x: custom login functionality
+
+
 
 
