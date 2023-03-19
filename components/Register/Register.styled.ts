@@ -33,7 +33,8 @@ export const RegisterForm = styled.form<StyledProps>`
     margin-bottom: 1rem;
 
     input {
-      border-color: ${({ errors }) => (errors?.email ? "red" : "#dbdeea")};
+      border-color: ${({ errors, isError }) =>
+        errors?.email || isError ? "red" : "#dbdeea"};
     }
   }
 
@@ -41,25 +42,40 @@ export const RegisterForm = styled.form<StyledProps>`
     margin-bottom: 1rem;
 
     input {
-      border-color: ${({ errors }) => (errors?.username ? "red" : "#dbdeea")};
+      border-color: #dbdeea;
     }
   }
 
   div:nth-of-type(3) {
-    margin-bottom: 2rem;
+    margin-bottom: ${({ isError }) => (isError ? "0.375rem" : "2rem")};
 
     input {
-      border-color: ${({ errors }) => (errors?.password ? "red" : "#dbdeea")};
+      border-color: #dbdeea;
+      margin-bottom: ${({ isError }) => (isError ? "0.5rem" : "")};
+    }
+
+    p {
+      color: red;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 0.5rem;
+      }
     }
   }
 `;
 
-export const RegisterBtn = styled.button`
+export const RegisterBtn = styled.button<StyledProps>`
   width: 100%;
   cursor: pointer;
-  padding: 0.5rem 0rem;
+  padding: ${({ isLoading }) => (isLoading ? "0.2rem 0rem" : "0.5rem 0rem")};
   margin-bottom: 1.5rem;
-  background-color: #825db3;
+  background-color: ${({ isLoading }) =>
+    isLoading ? "rgba(130, 93, 179, 0.7)" : "rgba(130, 93, 179, 1)"};
   border: none;
   color: white;
   font-weight: 700;

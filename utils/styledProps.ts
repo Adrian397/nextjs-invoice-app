@@ -8,6 +8,7 @@ export type StyledProps = {
   txtColor?: string;
   isValid?: boolean;
   isError?: string;
+  isLoading?: boolean;
   errors?: FormikErrors<{
     email?: string;
     username?: string;
